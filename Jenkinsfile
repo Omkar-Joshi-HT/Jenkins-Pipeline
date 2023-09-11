@@ -1,25 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('git repo & clean') {
+        stage('BackEnd') {
             steps {
                 sh "git clone https://github.com/kishancs2020/TicketBookingServiceJunitTesting.git"
                 sh "mvn clean -f TicketBookingServiceJunitTesting"
             }
         }
-        stage('install') {
+         stage('FrontEnd') {
             steps {
-                sh "mvn install -f TicketBookingServiceJunitTesting"
-            }
-        }
-        stage('test') {
-            steps {
-                sh "mvn test -f TicketBookingServiceJunitTesting"
-            }
-        }
-        stage('package') {
-            steps {
-                sh "mvn package -f TicketBookingServiceJunitTesting"
+                sh "git clone https://github.com/kishancs2020/TicketBookingServiceJunitTesting.git"
+                sh "mvn clean -f TicketBookingServiceJunitTesting"
             }
         }
     }
