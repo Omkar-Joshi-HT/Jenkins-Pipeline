@@ -8,9 +8,9 @@ pipeline {
                 sh "mvn clean -f TicketBookingServiceJunitTesting"
             }
         }
-        stage('package') {
-            steps {
-                sh "mvn package -f TicketBookingServiceJunitTesting"
+        stage('FrontEnd') {
+           steps {
+                sh 'echo "FontEnd is running on port 4200!"'
             }
         }
     }
