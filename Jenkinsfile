@@ -7,11 +7,9 @@ pipeline {
                 sh "mvn clean -f TicketBookingServiceJunitTesting"
             }
         }
-         stage('FrontEnd') {
+        stage('package') {
             steps {
-                sh "rm -rf TicketBookingServiceJunitTesting"
-                sh "git clone https://github.com/kishancs2020/TicketBookingServiceJunitTesting.git"
-                sh "mvn clean -f TicketBookingServiceJunitTesting"
+                sh "mvn package -f TicketBookingServiceJunitTesting"
             }
         }
     }
